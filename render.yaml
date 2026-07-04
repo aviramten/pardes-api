@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: pardes-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120 --workers 2
+    envVars:
+      - key: CLAUDE_API_KEY
+        sync: false
